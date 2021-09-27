@@ -1,21 +1,74 @@
 package TextilDelValle;
 
-public class CategoriaBono {
+public  class CategoriaBono {
+    public static  double ObtieneValorCategoria(String categoria, double Eficiencia){
+        double valor = 0.0;
+        switch(categoria){
+            case "Facil":{
+                if ( Eficiencia >= 20.0  && Eficiencia < 40){
+                    valor = 0.5;
+                }
+                if ( Eficiencia >= 40.0   && Eficiencia < 60){
+                    valor = 1;
+                }
+                if ( Eficiencia >=60.0 && Eficiencia < 80){
+                    valor = 2;
 
-    private String categoria;
-    private double porcentaje;
-    private double valor;
+                }
+                if ( Eficiencia >=80.0  ){
+                    valor = 3;
+                }
+                break;
+            }
+            case "Normal":{
+                if ( Eficiencia>=20.0  && Eficiencia < 40){
+                    valor = 1;
+                }
+                if ( Eficiencia >= 40.0  && Eficiencia < 60){
+                    valor = 2;
+                }
+                if (Eficiencia >= 60.0 && Eficiencia < 80){
+                    valor = 3;
 
-    public CategoriaBono(String categoria, double porcentaje, double valor) {
-        this.categoria = categoria;
-        this.porcentaje = porcentaje;
-        this.valor = valor;
-    }
+                }
+                if ( Eficiencia >= 80.0 ){
+                    valor = 5;
+                }
+                break;
+            }
+            case "Dificil":{
+                if ( Eficiencia>=20.0  && Eficiencia < 40){
+                    valor = 5;
+                }
+                if ( Eficiencia >= 40.0  && Eficiencia < 60){
+                    valor = 6;
+                }
+                if (  Eficiencia >= 60.0 && Eficiencia < 80){
+                    valor = 7;
 
-    @Override
-    public String toString() {
-        return  " Categoria='" + categoria + '\'' +
-                ", Porcentaje='" + (porcentaje*100)+" %" + '\'' +
-                ", Valor =" + valor ;
+                }
+                if ( Eficiencia >= 80 ){
+                    valor = 8;
+                }
+                break;
+            }
+            case "Muy Dificil":{
+                if ( Eficiencia >=20.0  && Eficiencia < 40){
+                    valor = 6.0;
+                }
+                if ( Eficiencia >= 40.0 && Eficiencia < 60){
+                    valor = 8.0;
+                }
+                if ( Eficiencia >= 60.0   && Eficiencia < 80){
+                    valor = 10.0;
+
+                }
+                if ( Eficiencia > 80.0  ){
+                    valor = 13;
+                }
+                break;
+            }
+        }
+        return valor;
     }
 }
