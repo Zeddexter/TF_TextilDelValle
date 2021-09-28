@@ -15,18 +15,23 @@ public class Ejecutora {
 
         Operario oper = new Operario();
 
-        try {
+       try {
 
             oper.registrarOperario(new MaquinistaCosturaRecta(45877841, "Anderson Fernandez Cruz", 500,true,"REC-010" ));
             oper.registrarOperario(new MaquinistaCosturaRecta(45877844, "Jhon Rojas Martinez", 500,true,"REC-020"));
             oper.registrarOperario(new MaquinistaCosturaRecta(45877455, "Javier Martinez Rojas", 500,true,"REC-040"));
+
             oper.registrarOperario(new MaquinistaCosturaPlana(21847123, "Juan Carlos Ramos Mata", 500,true,"PL-001"));
             oper.registrarOperario(new MaquinistaCosturaPlana(44877841, "Jair Peña Morán", 500,true,"PL-002"));
 
             System.out.println(linea);
             System.out.println("Lista de Operarios");
             System.out.println(linea);
+            oper.listarOperarios();
 
+           System.out.println("------------------------------------");
+           System.out.println("Búsqueda de Operario por DNI        ");
+           System.out.println("------------------------------------");
 
             //hacer una búsqueda de operario por DNI
             oper.encontrarOperario(45877844);
@@ -94,7 +99,10 @@ public class Ejecutora {
         // Se realiza el cierre Semanal
         emp1.CierreSemanal(new CierreSemanal(2021,36));
 
+        System.out.println("------------------------------------------------------------");
         System.out.println("Se intenta registrar un nuevo Operario en un periodo cerrado");
+        System.out.println("------------------------------------------------------------");
+
         //Se intenta realizar una asignación en una semana ya cerrada
         emp1.registrarOperarioLineaProduccion(new LineaProduccion(2021,36,"Linea 02","12/09/2021",44877841,0,"B",409,540,0,""));
         //Mostrar mensaje Excepcion por cierre de mes

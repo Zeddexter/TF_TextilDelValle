@@ -11,8 +11,7 @@ public class MaquinistaCosturaRecta extends Operario {
 
     @Override
     public String toString() {
-        return
-                super.toString() +
-                " Maquina = '" + maquinaRectilineo + '\'' ;
+        return "MaquinistaCosturaRecta{" + super.toString() +
+                        " Maquina = '" + maquinaRectilineo + '\'' ;
     }
 }

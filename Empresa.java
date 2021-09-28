@@ -1,4 +1,5 @@
 package TextilDelValle;
+
 import javax.sound.sampled.Line;
 import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
@@ -6,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+
 
 public class Empresa {
     public String getNombreEmpresa() {
@@ -142,51 +144,51 @@ public class Empresa {
 
     public  double ObtenerBonoSemanal(int dni){
         double bono = 0;
-            for (LineaProduccion t : lineasProduccion ) {
-                if(dni == t.getDni())
-                {
-                    bono = bono+ CategoriaBono.ObtieneValorCategoria(t.getCategoria(), t.CalcularEficiencia());
-                    if(dni != 0) {
+        for (LineaProduccion t : lineasProduccion ) {
+            if(dni == t.getDni())
+            {
+                bono = bono+ CategoriaBono.ObtieneValorCategoria(t.getCategoria(), t.CalcularEficiencia());
+                if(dni != 0) {
 
-                        if (t.getNroDiasInjustificados() > 0) {
-                            return 0.0;
+                    if (t.getNroDiasInjustificados() > 0) {
+                        return 0.0;
 
-                        }
-                        if (t.isAnulaBono() > 0) {
-                            return 0.0;
-                        }
+                    }
+                    if (t.isAnulaBono() > 0) {
+                        return 0.0;
                     }
                 }
             }
-        return bono;
         }
+        return bono;
+    }
 
-        public void SueldoTotal(Operario oper){
-            double pagototal = 0.0;
-            double bono = 0.0;
+    public void SueldoTotal(Operario oper){
+        double pagototal = 0.0;
+        double bono = 0.0;
         //recorro mi lista de lineas de producción -- obtengo su bono x dni
 
-            for(Operario t : oper.operarios)
-            {
-                //for (LineaProduccion r : lineasProduccion ) {
-                   // if(t.getDni() == r.getDni())
-                   // {
-                    //    bono = bono+ this.ObtenerBonoSemanal(r.getDni())
-                   // }
-                   // else
-                  //  {
-                   //     bono = CategoriaBono.ObtieneValorCategoria(r.getCategoria(), r.CalcularEficiencia());
-                  //  }
-               // }
-                pagototal = t.getSueldobase()+ this.ObtenerBonoSemanal(t.getDni());
-                System.out.printf(t.toString()+" Pago Total= "+pagototal+"\n");
-
-            }
-
-            //Total
-
-            //Clase Operario tengo su Sueldo Base
-
+        for(Operario t : oper.operarios)
+        {
+            //for (LineaProduccion r : lineasProduccion ) {
+            // if(t.getDni() == r.getDni())
+            // {
+            //    bono = bono+ this.ObtenerBonoSemanal(r.getDni())
+            // }
+            // else
+            //  {
+            //     bono = CategoriaBono.ObtieneValorCategoria(r.getCategoria(), r.CalcularEficiencia());
+            //  }
+            // }
+            pagototal = t.getSueldobase()+ this.ObtenerBonoSemanal(t.getDni());
+            System.out.printf(t.toString()+" Pago Total= "+pagototal+"\n");
 
         }
+
+        //Total
+
+        //Clase Operario tengo su Sueldo Base
+
+
+    }
 }

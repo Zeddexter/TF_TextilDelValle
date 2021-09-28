@@ -36,7 +36,7 @@ public class Operario {
 
     @Override
     public String toString() {
-        return  " nombre='" + nombres + '\'' +
+        return  " Datos Operario ='" + nombres + '\'' +
                 ", dni='" + dni + '\'' +
                 ", sueldo Básico Semanal =" + sueldobase ;
     }
@@ -45,7 +45,7 @@ public class Operario {
 
         double sueldototal = sueldobase;
 
-          System.out.println("El Sueldo total  es: "+sueldototal) ;
+        System.out.println("El Sueldo total  es: "+sueldototal) ;
     }
 
     public void registrarOperario(Operario operario) throws ExcepcionDNIRegistrado {

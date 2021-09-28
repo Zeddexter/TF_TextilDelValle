@@ -1,6 +1,6 @@
 package TextilDelValle;
 
-public  class CategoriaBono {
+public class CategoriaBono {
     public static  double ObtieneValorCategoria(String categoria, double Eficiencia){
         double valor = 0.0;
         switch(categoria){
